@@ -11,8 +11,8 @@ Herramientas utilizadas para el desarrollo del ejercicio:
 - ChromeDriver
 
 Se creó la función sendText(), la cual cuenta con 7 líneas de código 
-
-public void sendText(String label, String selectorType, String selector, String value) {
+    
+    public void sendText(String label, String selectorType, String selector, String value) {
 		if (selectorType == "name") {
 			driver.findElement(By.name(selector)).sendKeys(value);
 		} else if (selectorType == "css") {
@@ -21,19 +21,11 @@ public void sendText(String label, String selectorType, String selector, String 
 			driver.findElement(By.xpath("//input[@name='" + selector + "']")).sendKeys(value);
 		}
 	}
-    
-
+	
+	
 Se creó testApprater() para ejecutar el test con los parámetros establecidos
 
-    @Testpublic void sendText(String label, String selectorType, String selector, String value) {
-		if (selectorType == "name") {
-			driver.findElement(By.name(selector)).sendKeys(value);
-		} else if (selectorType == "css") {
-			driver.findElement(By.cssSelector("input[name ='" + selector + "']")).sendKeys(value);
-		} else {
-			driver.findElement(By.xpath("//input[@name='" + selector + "']")).sendKeys(value);
-		}
-	}
+	@Test
 	public void testApprater() {
 		sendText("myName", "name", "user-submitted-name", "Alejandro Espejo");
 		sendText("EmailAddress", "css", "user-submitted-email", "alejandro_espejo_g@hotmail.com");
