@@ -25,7 +25,15 @@ public void sendText(String label, String selectorType, String selector, String 
 
 Se creó testApprater() para ejecutar el test con los parámetros establecidos
 
-    @Test
+    @Testpublic void sendText(String label, String selectorType, String selector, String value) {
+		if (selectorType == "name") {
+			driver.findElement(By.name(selector)).sendKeys(value);
+		} else if (selectorType == "css") {
+			driver.findElement(By.cssSelector("input[name ='" + selector + "']")).sendKeys(value);
+		} else {
+			driver.findElement(By.xpath("//input[@name='" + selector + "']")).sendKeys(value);
+		}
+	}
 	public void testApprater() {
 		sendText("myName", "name", "user-submitted-name", "Alejandro Espejo");
 		sendText("EmailAddress", "css", "user-submitted-email", "alejandro_espejo_g@hotmail.com");
